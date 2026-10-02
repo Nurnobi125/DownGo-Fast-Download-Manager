@@ -1,0 +1,49 @@
+.logo{display:inline-flex;align-items:center;gap:.65rem;animation:brand-rise .55s ease-out both}
+.logo::before{content:"";display:block;flex:0 0 38px;width:38px;height:38px;background:url("../icons/downgo-icon.png") center/contain no-repeat;border-radius:10px}
+.pricing-card{display:flex;flex-direction:column}
+.pricing-card .pricing-header{text-align:center;margin-bottom:1rem}
+.pricing-card .btn{margin-top:auto;text-align:center}
+.pricing-card.best-value{border-color:#63a2ff;box-shadow:0 0 24px rgba(99,162,255,.16)}
+.store-badge{margin:.8rem 0 1.1rem;min-height:40px}
+ms-store-badge{display:inline-block;max-width:100%}
+/* Quiet entrance and hover motion shared across every page. */
+.site-header{animation:brand-fade .45s ease-out both}
+main> :where(h1,h2,h3,p,.eyebrow,.lead,.subtitle,.actions,.hero-visual,.hero-product,.content-section,.card-grid,.pricing-container,.callout,.prose,.comparison-section,.support-container,.admin-warning){animation:brand-rise .55s cubic-bezier(.2,.7,.25,1) both}
+main> :where(:nth-child(1)){animation-delay:.04s}
+main> :where(:nth-child(2)){animation-delay:.08s}
+main> :where(:nth-child(3)){animation-delay:.12s}
+.info-card,.pricing-card{transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+.info-card:hover,.pricing-card:hover{transform:translateY(-3px);border-color:rgba(99,162,255,.42);box-shadow:0 12px 30px rgba(0,0,0,.18)}
+.site-header nav a,.site-footer nav a,.text-link{transition:color .18s ease,opacity .18s ease}
+.site-header nav a:hover,.site-footer nav a:hover{opacity:.82}
+.hero-visual img,.feature-image,.screenshot-gallery img{transition:transform .35s ease,filter .35s ease}
+.hero-visual img:hover,.feature-image:hover,.screenshot-gallery img:hover{transform:scale(1.012);filter:brightness(1.04)}
+.comparison-section{margin:3.5rem 0 1.5rem}
+.comparison-section h2{font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.15;letter-spacing:-.035em;margin:.35rem 0}
+.comparison-intro{color:var(--muted);margin:.5rem 0 1rem}
+.comparison-scroll-hint{display:none;color:var(--muted);font-size:.88rem;margin:.5rem 0}
+.comparison-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:14px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.015));overscroll-behavior-x:contain}
+.comparison-wrap:focus-visible{outline:3px solid #9ac3ff;outline-offset:3px}
+.comparison-table{border-collapse:collapse;width:100%;min-width:720px;text-align:left;line-height:1.5}
+.comparison-table th,.comparison-table td{padding:.9rem 1rem;border-bottom:1px solid var(--border);vertical-align:top}
+.comparison-table thead th{position:sticky;top:0;background:#111a29;color:var(--text);font-size:.9rem;letter-spacing:.04em}
+.comparison-table thead th:nth-child(2),.comparison-table thead th:nth-child(3){width:26%}
+.comparison-table tbody th{width:48%;font-weight:600;color:var(--text)}
+.comparison-table tbody td{color:var(--muted)}
+.comparison-table tbody td:last-child{color:#c7ddff}
+.comparison-table tbody tr:last-child th,.comparison-table tbody tr:last-child td{border-bottom:0}
+.comparison-table tbody tr:hover{background:rgba(99,162,255,.055)}
+.comparison-note,.comparison-security-note{font-size:.88rem;color:var(--muted);margin:.85rem 0 0}
+.comparison-security-note{padding:.75rem 1rem;border-left:3px solid #63a2ff;background:rgba(99,162,255,.06);border-radius:0 8px 8px 0}
+@media(max-width:700px){.comparison-scroll-hint{display:block}.comparison-table th,.comparison-table td{padding:.75rem .8rem}}
+.hero-product .hero-copy>*{animation:brand-rise .7s cubic-bezier(.2,.7,.25,1) both}
+.hero-product .hero-copy>*:nth-child(1){animation-delay:.08s}
+.hero-product .hero-copy>*:nth-child(2){animation-delay:.16s}
+.hero-product .hero-copy>*:nth-child(3){animation-delay:.24s}
+.hero-product .hero-copy>*:nth-child(4){animation-delay:.32s}
+.hero-product .hero-copy>*:nth-child(5){animation-delay:.4s}
+.hero-product .hero-visual{animation:brand-rise .8s .25s cubic-bezier(.2,.7,.25,1) both}
+@keyframes brand-rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+}
