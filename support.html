@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Contact DownGo support and submit a help ticket for download, browser integration, billing, or product questions.">
+  <meta name="robots" content="noindex,follow">
+  <title>DownGo Support | Submit a Help Ticket</title>
+  <link rel="canonical" href="https://downgo.online/support.html">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/brand.css">
+  <link rel="icon" type="image/png" sizes="128x128" href="assets/icons/downgo-icon.png">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="logo" href="index.html">DownGo</a>
+    <nav aria-label="Main navigation"><a href="features.html">Features</a><a href="download.html">Download</a><a href="free-vs-pro.html">Pricing</a><a href="help/">Help</a></nav>
+  </header>
+  <main id="main" class="page-wrap prose">
+    <p class="eyebrow">Help &amp; support</p>
+    <h1>How can we help?</h1>
+    <p class="lead">Search the <a href="help/">Help Center</a> for quick answers, or send our team a support ticket.</p>
+    <section class="support-container" aria-labelledby="ticket-title">
+      <h2 id="ticket-title">Submit a support ticket</h2>
+      <p>Describe the issue and include the DownGo version and Windows version when relevant. Never include your password, payment card details, or private download links.</p>
+      <form id="supportTicketForm">
+        <div class="form-group"><label for="ticketName">Your name</label><input id="ticketName" name="name" autocomplete="name" minlength="2" maxlength="100" required></div>
+        <div class="form-group"><label for="ticketEmail">Email address</label><input id="ticketEmail" name="email" type="email" autocomplete="email" maxlength="254" required></div>
+        <div class="form-group"><label for="ticketCategory">What do you need help with?</label><select id="ticketCategory" name="category" required><option value="" selected disabled>Choose a topic</option><option>General question</option><option>Download problem</option><option>Browser integration</option><option>Billing or license</option><option>Bug report</option><option>Other</option></select></div>
+        <div class="form-group"><label for="ticketSubject">Subject</label><input id="ticketSubject" name="subject" minlength="4" maxlength="160" required></div>
+        <div class="form-group"><label for="ticketMessage">How can we help?</label><textarea id="ticketMessage" name="message" rows="7" minlength="20" maxlength="5000" required></textarea></div>
+        <div class="form-group" aria-hidden="true" style="position:absolute;left:-10000px"><label for="website">Leave this field empty</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+        <button class="btn" id="ticketSubmit" type="submit">Send support ticket</button>
+        <p id="ticketStatus" class="note" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+  <footer class="site-footer"><p>© DownGo · Rafix Technologies</p><nav aria-label="Footer navigation"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav></footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/js/supabase-config.js"></script>
+  <script src="assets/js/supabase-client.js"></script>
+  <script src="assets/js/support.js"></script>
+</body>
+</html>
