@@ -4,6 +4,8 @@
 .pricing-card .pricing-header{text-align:center;margin-bottom:1rem}
 .pricing-card .btn{margin-top:auto;text-align:center}
 .pricing-card.best-value{border-color:#63a2ff;box-shadow:0 0 24px rgba(99,162,255,.16)}
+.store-badge{margin:.8rem 0 1.1rem;min-height:40px}
+ms-store-badge{display:inline-block;max-width:100%}
 /* Quiet entrance and hover motion shared across every page. */
 .site-header{animation:brand-fade .45s ease-out both}
 main> :where(h1,h2,h3,p,.eyebrow,.lead,.subtitle,.actions,.hero-visual,.hero-product,.content-section,.card-grid,.pricing-container,.callout,.prose,.comparison-section,.support-container,.admin-warning){animation:brand-rise .55s cubic-bezier(.2,.7,.25,1) both}
