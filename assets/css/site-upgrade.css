@@ -53,3 +53,15 @@
 .extension-shot-grid figure img{display:block;width:auto;height:auto;max-width:100%;max-height:570px;object-fit:contain;border-radius:8px}
 @media(max-width:850px){.screenshot-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.screenshot-gallery,.extension-shot-grid{grid-template-columns:1fr}.screenshot-gallery figure a{height:auto;min-height:180px}.screenshot-gallery figure img{height:auto;max-height:260px}.extension-shot-grid figure a{min-height:0;max-height:none}.extension-shot-grid figure img{max-height:520px}}
+
+/* One clear Microsoft Store action in the homepage hero. */
+.home-hero-actions{justify-content:flex-start;align-items:stretch;gap:.75rem}
+.home-store-cta{min-width:245px;min-height:64px;justify-content:flex-start;gap:.8rem;padding:.65rem 1rem;border-radius:12px;box-shadow:0 10px 26px rgba(52,126,232,.22);text-align:left}
+.home-store-cta-icon{display:grid;place-items:center;flex:0 0 42px;width:42px;height:42px;border-radius:10px;background:rgba(8,19,35,.12);line-height:1}.home-store-cta-icon svg{display:block;width:34px;height:34px}
+.home-store-cta-copy{display:grid;gap:.08rem;line-height:1.2}
+.home-store-cta-copy strong{font-size:1rem}
+.home-store-cta-copy small{font-size:.78rem;font-weight:500;opacity:.82}
+.home-store-cta-arrow{margin-left:auto;font-size:1.05rem;opacity:.82}
+@media(max-width:760px){.home-hero-actions{justify-content:center}.home-store-cta{width:100%;max-width:360px;min-height:60px}}.store-status-pill{display:inline-flex;align-items:center;gap:.5rem;width:max-content;margin:.15rem 0 .65rem;padding:.42rem .75rem;border:1px solid rgba(67,208,155,.34);border-radius:999px;background:rgba(28,139,103,.13);color:#a7f1d3;font-size:.86rem;font-weight:700;letter-spacing:.01em}
+.store-status-pill span{display:grid;place-items:center;width:1.25rem;height:1.25rem;border-radius:50%;background:#38c995;color:#071710;font-size:.83rem;font-weight:900}
+@media(max-width:760px){.store-status-pill{margin-inline:auto}}

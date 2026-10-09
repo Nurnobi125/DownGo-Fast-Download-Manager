@@ -1,0 +1,81 @@
+/* Shared responsive layout and mobile interaction polish. */
+html { max-width: 100%; overflow-x: clip; }
+body { min-width: 320px; }
+img, picture, video, canvas, iframe, svg { max-width: 100%; }
+img, video { height: auto; }
+pre, code, td, th, p, li, a, h1, h2, h3 { overflow-wrap: anywhere; }
+button, input, textarea, select { max-width: 100%; }
+main, header, footer, section, article, figure { min-width: 0; }
+
+@media (max-width: 760px) {
+  .site-header { padding: .8rem 1rem; gap: .65rem; }
+  .site-header nav {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .4rem;
+  }
+  .site-header nav a {
+    display: flex;
+    min-height: 42px;
+    align-items: center;
+    justify-content: center;
+    padding: .45rem .5rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: rgba(255,255,255,.025);
+    text-align: center;
+    line-height: 1.3;
+  }
+  main { padding-inline: 1rem; }
+  .hero { margin: 2.6rem auto 2.4rem; padding-inline: .25rem; }
+  .hero h1, .page-wrap h1 { font-size: clamp(1.9rem, 8vw, 2.8rem); }
+  .subtitle, .lead { font-size: 1.05rem; }
+  .page-wrap { padding-top: 2rem; padding-bottom: 2rem; }
+  .content-section { padding: 1.8rem 0 2.8rem; }
+  .showcase-band { padding: 2.5rem 1rem; }
+  .showcase-inner { gap: 1.25rem; }
+  .showcase-copy p:not(.eyebrow) { font-size: 1rem; }
+  .callout { align-items: stretch; padding: 1.25rem; gap: 1rem; }
+  .callout .btn, .actions .btn { min-height: 44px; }
+  .site-footer { padding: 1.25rem 1rem; gap: .75rem; }
+  .site-footer nav { gap: .55rem 1rem; }
+  .pricing-container { grid-template-columns: minmax(0, 1fr); }
+  .comparison-wrap { max-width: 100%; }
+  .comparison-table { min-width: 660px; }
+  .support-container { margin: 1.5rem auto; padding: 1.1rem; }
+  input, textarea, select { font-size: 16px; }
+  .extension-hero, .home-extension { padding-inline: 1rem; }
+  .extension-hero .actions, .home-extension-copy .actions { width: 100%; }
+  .extension-hero .actions .btn, .home-extension-copy .actions .btn { flex: 1 1 100%; }
+  .status-row { flex-wrap: wrap; }
+  .admin-layout { min-height: 100vh; }
+  .sidebar { max-width: 100%; }
+  .sidebar ul { max-width: 100%; }
+  .top-bar { flex-wrap: wrap; gap: .75rem; }
+  .stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .admin-card { max-width: 100%; padding: 1rem; }
+  table.data-table { display: block; max-width: 100%; overflow-x: auto; white-space: nowrap; }
+}
+
+@media (max-width: 420px) {
+  .site-header { padding-inline: .75rem; }
+  main { padding-inline: .85rem; }
+  .logo { font-size: 1.18rem; }
+  .site-header nav a { font-size: .88rem; }
+  .hero-product { padding-inline: .25rem; }
+  .info-card, .pricing-card { padding: 1.05rem; }
+  .stat-grid { grid-template-columns: minmax(0, 1fr); }
+  .admin-card { padding: .8rem; }
+}
+/* Consistent company identity and Store action in every public page footer. */
+.site-footer{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:.9rem 1.5rem}
+.footer-brand-block{display:grid;gap:.08rem;line-height:1.45}
+.footer-brand-name{color:var(--text);font-size:1rem;font-weight:750}
+.footer-brand-roles{color:var(--muted);font-size:.82rem}
+.footer-origin{color:#b9d9ff;font-size:.88rem;font-weight:650}
+.footer-origin span{font-size:1.05rem}
+.footer-copyright{color:var(--muted);font-size:.78rem;margin-top:.15rem}
+.footer-store-cta{grid-column:2;grid-row:1;min-height:46px;padding:.65rem 1rem;border-radius:10px;background:linear-gradient(135deg,#75b2ff,#4a8cf0);box-shadow:0 8px 22px rgba(52,126,232,.18);text-align:center;white-space:normal}
+.site-footer nav{grid-column:1/-1;width:100%;padding-top:.75rem;border-top:1px solid var(--border)}
+@media(max-width:760px){.site-footer{grid-template-columns:minmax(0,1fr);align-items:start}.footer-store-cta{grid-column:1;grid-row:auto;justify-self:start;min-width:min(100%,250px)}.site-footer nav{grid-column:1}}
