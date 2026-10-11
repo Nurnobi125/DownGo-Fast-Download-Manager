@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The story behind DownGo: how an independent developer in Bangladesh went from frustration with download tools to building and publishing a Windows download manager.">
+  <meta name="robots" content="index,follow">
+  <title>How DownGo Was Built | An Independent Developer’s Story</title>
+  <link rel="canonical" href="https://downgo.online/how-downgo-was-built.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="How DownGo Was Built | An Independent Developer’s Story">
+  <meta property="og:description" content="From a personal search for a download manager to learning, testing, and publishing DownGo for Windows.">
+  <meta property="og:url" content="https://downgo.online/how-downgo-was-built.html">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/brand.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="icon" type="image/png" sizes="128x128" href="assets/icons/downgo-icon.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How DownGo Was Built: An Independent Developer’s Journey from Bangladesh",
+    "description": "The creator's first-person account of building and publishing DownGo, a Windows download manager.",
+    "datePublished": "2026-10-12",
+    "dateModified": "2026-10-12",
+    "author": {"@type": "Person", "name": "Rafix Technologies"},
+    "publisher": {"@type": "Organization", "name": "Rafix Technologies", "url": "https://downgo.online/"},
+    "mainEntityOfPage": "https://downgo.online/how-downgo-was-built.html"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="logo" href="index.html">DownGo</a>
+    <nav aria-label="Main navigation"><a href="features.html">Features</a><a href="download.html">Download</a><a href="browser-extension.html">Browser extension</a><a href="free-vs-pro.html">Free &amp; Pro</a><a href="help/">Help</a></nav>
+  </header>
+
+  <main id="main" class="page-wrap prose">
+    <p class="eyebrow">The story behind DownGo · Bangladesh</p>
+    <h1>How DownGo Was Built</h1>
+    <p class="lead">From a personal search for a download manager to learning, testing, and publishing a Windows app—this is the independent developer’s story behind DownGo.</p>
+    <p><strong>By the creator of DownGo, Rafix Technologies</strong> · <time datetime="2026-10-12">October 12, 2026</time></p>
+
+    <h2>The problem that inspired me</h2>
+    <p>My journey began with a familiar problem. I regularly used Internet Download Manager (IDM) to download files, images, videos, and other content on my Windows computer. I wanted a more affordable option that I could keep using without a paid subscription.</p>
+    <p>At one point, I used an unofficial cracked copy of IDM. Afterwards, I noticed unusual problems with my computer, including slow performance, missing files, and unexpected Gmail login notifications. Eventually, Windows became corrupted. I cannot say for certain that the software caused all of these problems, but the experience made me think seriously about software security and getting apps from trustworthy sources.</p>
+    <p>I began looking for a free download manager for Windows. I also wanted to build something of my own: a modern app with a clean interface, a capable download engine, and optional Pro features. That idea became DownGo.</p>
+
+    <h2>Starting from scratch with Python</h2>
+    <p>On June 22, 2026, I began developing DownGo using Python. I started with a basic download engine, then built the app’s interface. Real-world testing quickly showed me that many downloads did not complete successfully.</p>
+    <p>Rather than abandon the project, I studied how download engines work. I used documentation, experiments, and AI chat tools to learn about connection management and parallel downloads. My early results were far from perfect: in one round of tests, only one of five files downloaded successfully.</p>
+    <p>Those failures taught me that a download manager is much more than a user interface and an Add button.</p>
+
+    <h2>Learning, testing, and improving the download engine</h2>
+    <p>I researched download-engine design and tested different approaches. I implemented parallel downloading, first using four connections for supported downloads. I kept refining the engine, fixing errors, and improving compatibility with different sources.</p>
+    <p>Later versions expanded the available connection limits, added internet speed monitoring, and introduced dark and light themes. I built successive Windows versions, moving from early prototypes toward a more complete application.</p>
+    <p>Each iteration meant testing, finding bugs, making changes, and testing again. My goal was not only to make DownGo look modern, but to make its core download controls useful in everyday work.</p>
+
+    <h2>From version 1.0 to a more complete product</h2>
+    <p>The project evolved through versions including 1.0.0, 2.0.14, 3.0.1, and 4.0.7. As it matured, I continued improving the interface and download engine. I also developed optional Pro features, including support for more connections on eligible downloads, and a licensing system for advanced tools.</p>
+    <p>What began as a personal attempt to find a download manager I could afford gradually became a full Windows software project.</p>
+
+    <h2>The challenge of publishing without a budget</h2>
+    <p>Once I felt ready to share DownGo, I wanted it to reach people beyond my own computer. Publishing software also brought a financial challenge: some distribution platforms required developer-account fees I could not afford.</p>
+    <p>I first published version 4.0.7 on GitHub and Product Hunt. After about a month without meaningful downloads, I realized that simply making software available online does not guarantee people will discover it. I continued searching and found an opportunity to apply to the Microsoft Store through its free Partner Program.</p>
+    <p>The Partner Center account is registered to my father, who helped me complete account verification. I am the developer behind DownGo.</p>
+
+    <h2>Four rejections before the breakthrough</h2>
+    <p>Getting DownGo into the Microsoft Store took persistence. My first submission, version 4.0.0, was rejected after review because of bugs and other issues. I fixed the reported problems, improved the app, and submitted new builds. DownGo was rejected four times in total.</p>
+    <p>Each rejection meant understanding the feedback, correcting issues, testing again, and preparing another submission. I treated the process as a chance to improve the product. Eventually, Microsoft approved DownGo, and version 4.0.7 was published in the Microsoft Store.</p>
+    <p>That approval represented more than a successful submission. It reflected repeated experimentation, learning, and persistence.</p>
+
+    <h2>Where DownGo stands today</h2>
+    <p>As of October 12, 2026, DownGo is at version 4.0.27 and is published through the Microsoft Store under the Rafix Technologies brand. It is built with Python and is intended to give Windows users a modern download-management experience.</p>
+    <p>Development has included parallel downloads, queue and resume improvements, internet speed monitoring, theme options, and an optional Pro licensing model. I continue working to make the application more reliable and useful.</p>
+    <p><strong>Product:</strong> DownGo – Fast Download Manager<br><strong>Developer brand:</strong> Rafix Technologies<br><strong>Developer location:</strong> Bangladesh<br><strong>Official website:</strong> <a href="https://downgo.online/">downgo.online</a></p>
+
+    <h2>My next goal: reaching users around the world</h2>
+    <p>Building DownGo was the first challenge. Helping people discover it is the next one. With a limited marketing budget, I am exploring organic growth, software communities, search visibility, product reviews, and technology publications.</p>
+    <p>This journey has taught me that software development involves much more than writing code. It takes patience, research, testing, problem-solving, and the willingness to continue when things do not work the first time.</p>
+    <p>DownGo started with a personal frustration. Today, it is a published Windows application from Bangladesh. I hope to keep improving it with feedback from the people who use it.</p>
+
+    <p class="actions"><a class="btn" href="https://apps.microsoft.com/detail/9pp082npwr27?hl=en-US&amp;gl=GB" target="_blank" rel="noopener noreferrer">View DownGo on Microsoft Store <span aria-hidden="true">↗</span></a><a class="btn btn-outline" href="about.html">About DownGo</a></p>
+    <p class="text-link"><a href="mailto:contact@downgo.online">Contact Rafix Technologies</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-brand-block"><strong class="footer-brand-name">Rafix Technologies</strong><span class="footer-brand-roles">Company · Publisher · Developer</span><span class="footer-origin"><span aria-hidden="true">🇧🇩</span> Built in Bangladesh</span><span class="footer-copyright">© DownGo</span></div>
+    <a class="btn footer-store-cta" href="https://apps.microsoft.com/detail/9pp082npwr27?hl=en-US&amp;gl=GB" target="_blank" rel="noopener noreferrer">Get DownGo from Microsoft Store <span aria-hidden="true">↗</span></a>
+    <nav aria-label="Footer navigation"><a href="about.html">About</a><a href="how-downgo-was-built.html" aria-current="page">How DownGo Was Built</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
+  </footer>
+</body>
+</html>
