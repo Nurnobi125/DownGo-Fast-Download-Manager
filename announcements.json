@@ -1,4 +1,24 @@
 {
   "schema_version": 1,
-  "announcements": []
+  "announcements": [
+    {
+      "id": "personal-offer-2026-10-01",
+      "enabled": true,
+      "type": "offer",
+      "title": "October offer",
+      "message": "Save 50% on DownGo Pro Personal this month.",
+      "button_text": "Get 50% off",
+      "background_image": "https://downgo.online/assets/img/offer-background.jpg",
+      "starts_at": "2026-10-16T00:00:00Z",
+      "ends_at": "2026-11-01T00:00:00Z",
+      "offer": {
+        "plan": "personal",
+        "regular_price": 9.99,
+        "offer_price": 4.99,
+        "currency": "USD",
+        "label": "50% off · limited time",
+        "checkout_url": "https://ttps1412.gumroad.com/l/downgo-personal/YOUR-CODE?wanted=true"
+      }
+    }
+  ]
 }
