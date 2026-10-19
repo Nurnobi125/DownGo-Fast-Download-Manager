@@ -1,0 +1,128 @@
+/* Active homepage promotion; content is populated safely from announcements.json. */
+.home-offer-banner {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  align-items: center;
+  min-height: 230px;
+  max-width: 1120px;
+  margin: 28px auto 42px;
+  overflow: hidden;
+  border: 1px solid rgba(103, 174, 255, .6);
+  border-radius: 22px;
+  background: linear-gradient(115deg, #10243c 0%, #153e66 55%, #0d1727 100%);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, .28);
+  color: #f7fbff;
+}
+.home-offer-banner[hidden] { display: none; }
+.home-offer-banner::after {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  content: "";
+  background: linear-gradient(90deg, rgba(5, 12, 23, .94) 0%, rgba(5, 15, 29, .82) 56%, rgba(5, 15, 29, .52) 100%);
+}
+.home-offer-banner-image {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.home-offer-banner-content {
+  max-width: 760px;
+  padding: clamp(24px, 5vw, 46px);
+}
+.home-offer-banner-kicker {
+  margin: 0 0 8px;
+  color: #91c5ff;
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.home-offer-banner h2 {
+  margin: 0 0 10px;
+  color: #fff;
+  font-size: clamp(1.6rem, 3.4vw, 2.35rem);
+  line-height: 1.15;
+}
+.home-offer-banner-message { margin: 0; max-width: 62ch; color: #d4e2f3; line-height: 1.65; }
+.home-offer-banner-price { margin: 14px 0 0; color: #fff; font-size: 1.15rem; font-weight: 800; }
+.home-offer-banner-badge {
+  display: inline-flex;
+  margin: 12px 10px 0 0;
+  padding: 6px 10px;
+  border: 1px solid rgba(104, 238, 173, .55);
+  border-radius: 999px;
+  background: rgba(12, 94, 66, .35);
+  color: #9cf3c5;
+  font-size: .84rem;
+  font-weight: 800;
+}
+.home-offer-banner-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  margin-top: 18px;
+  padding: 10px 18px;
+  border: 1px solid #73b4ff;
+  border-radius: 10px;
+  background: #73b4ff;
+  color: #071323 !important;
+  font-weight: 800;
+  text-decoration: none;
+}
+.home-offer-banner-cta:hover { background: #9acaff; border-color: #9acaff; }
+.home-offer-banner-cta:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+
+/* Announcement / offer dialog */
+.downgo-announcement-dialog {
+  width: min(92vw, 500px);
+  max-width: 500px;
+  max-height: min(86vh, 720px);
+  overflow: auto;
+  padding: 0;
+  border: 1px solid rgba(115, 180, 255, .55);
+  border-radius: 22px;
+  background: #0c1422;
+  color: #f4f7fb;
+  box-shadow: 0 28px 90px rgba(0, 0, 0, .62);
+  font: 16px/1.55 "Segoe UI", system-ui, sans-serif;
+}
+.downgo-announcement-dialog::backdrop { background: rgba(2, 6, 17, .78); backdrop-filter: blur(5px); }
+.downgo-announcement-inner { position: relative; padding: clamp(22px, 5vw, 34px); }
+.downgo-announcement-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.downgo-announcement-kicker { margin: 0 0 16px; color: #91c5ff; font-size: .76rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.downgo-announcement-x { display: grid; width: 36px; height: 36px; flex: 0 0 auto; place-items: center; margin: -8px -8px 8px 0; border: 1px solid #34445a; border-radius: 50%; background: #182438; color: #e8f1fc; font: 25px/1 system-ui; cursor: pointer; }
+.downgo-announcement-x:hover { background: #263952; }
+.downgo-announcement-dialog h2 { margin: 0 0 10px; color: #fff; font-size: clamp(1.55rem, 6vw, 2rem); line-height: 1.16; letter-spacing: -.025em; }
+.downgo-announcement-message { margin: 0; color: #c0ccdc; white-space: pre-line; }
+.downgo-announcement-price-box { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 12px; margin-top: 22px; padding: 16px 18px; border: 1px solid rgba(115, 180, 255, .3); border-radius: 14px; background: linear-gradient(115deg, rgba(34, 75, 125, .38), rgba(18, 31, 49, .85)); }
+.downgo-announcement-price { color: #9acaff; font-size: 2rem; font-weight: 850; line-height: 1.1; }
+.downgo-announcement-price-meta { color: #aab7c8; font-size: .88rem; text-decoration: line-through; }
+.downgo-announcement-savings { margin-left: auto; padding: 5px 10px; border: 1px solid rgba(104, 238, 173, .38); border-radius: 999px; background: rgba(12, 94, 66, .3); color: #9cf3c5; font-size: .82rem; font-weight: 800; white-space: nowrap; }
+.downgo-announcement-actions { display: flex; justify-content: flex-end; gap: 10px; flex-wrap: wrap; margin-top: 24px; }
+.downgo-announcement-actions button, .downgo-announcement-actions a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 16px; border: 1px solid #34445a; border-radius: 10px; font: inherit; font-weight: 750; text-decoration: none; cursor: pointer; }
+.downgo-announcement-close { background: #182438; color: #d7e1f0; }
+.downgo-announcement-close:hover { background: #263952; }
+.downgo-announcement-cta { border-color: #73b4ff !important; background: #73b4ff; color: #071323 !important; }
+.downgo-announcement-cta:hover { border-color: #9acaff !important; background: #9acaff; }
+.downgo-announcement-dialog button:focus-visible, .downgo-announcement-dialog a:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+@media (max-width: 520px) {
+  .downgo-announcement-dialog { width: calc(100vw - 28px); border-radius: 18px; }
+  .downgo-announcement-actions { display: grid; grid-template-columns: 1fr; }
+  .downgo-announcement-actions button, .downgo-announcement-actions a { width: 100%; }
+  .downgo-announcement-savings { margin-left: 0; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .downgo-announcement-dialog[open] { animation: downgo-offer-enter .18s ease-out; }
+  @keyframes downgo-offer-enter { from { opacity: 0; transform: translateY(8px) scale(.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
+}
+@media (max-width: 700px) {
+  .home-offer-banner { min-height: 210px; margin: 18px 16px 32px; border-radius: 16px; }
+  .home-offer-banner::after { background: rgba(5, 12, 23, .78); }
+}

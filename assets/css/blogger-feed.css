@@ -1,0 +1,4 @@
+.blogger-feed-section { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+.blogger-feed-section > h2 { font-size: clamp(1.5rem, 3vw, 2rem); }
+.blogger-feed-status { color: var(--muted); }
+.blogger-feed-section time { display: block; margin: -.15rem 0 .5rem; color: var(--muted); font-size: .82rem; }

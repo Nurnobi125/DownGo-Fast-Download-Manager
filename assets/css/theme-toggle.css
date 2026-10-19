@@ -1,0 +1,69 @@
+/* Persistent site-wide light theme. Dark remains the default. */
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f4f7fb;
+  --surface: #ffffff;
+  --text: #172235;
+  --muted: #526174;
+  --primary: #3478d4;
+  --border: rgba(25, 45, 75, .17);
+}
+
+:root[data-theme="light"] body {
+  background: radial-gradient(ellipse at 50% -10%, rgba(53,110,205,.10), transparent 55%), var(--bg);
+}
+:root[data-theme="light"] a { color: #195cae; }
+:root[data-theme="light"] a:hover { color: #103e78; }
+:root[data-theme="light"] .logo,
+:root[data-theme="light"] .site-header nav a,
+:root[data-theme="light"] .site-footer nav a { color: var(--text); }
+:root[data-theme="light"] .btn { color: #fff; }
+:root[data-theme="light"] .btn-outline { color: var(--text); border-color: var(--border); }
+:root[data-theme="light"] .btn-outline:hover { color: var(--text); background: rgba(25,45,75,.06); }
+:root[data-theme="light"] input,
+:root[data-theme="light"] textarea,
+:root[data-theme="light"] select { color: var(--text); background: #fff; }
+:root[data-theme="light"] .showcase-band,
+:root[data-theme="light"] .showcase-band:nth-of-type(even) { background: #edf2f8; color: var(--text); }
+:root[data-theme="light"] .showcase-visual img { border-color: var(--border); }
+:root[data-theme="light"] .showcase-visual figcaption,
+:root[data-theme="light"] .showcase-copy p:not(.eyebrow) { color: var(--muted); }
+:root[data-theme="light"] .showcase-copy .eyebrow { color: #195cae; }
+:root[data-theme="light"] .home-feature-grid .info-card {
+  background: linear-gradient(145deg, #fff, #f7faff);
+  border-color: var(--border);
+}
+:root[data-theme="light"] .home-feature-grid .info-card::after { background: rgba(80,144,245,.08); }
+:root[data-theme="light"] .feature-icon { color: #195cae; background: rgba(75,145,255,.12); }
+:root[data-theme="light"] .home-feature-grid .card-link,
+:root[data-theme="light"] .card-link { color: #195cae; }
+:root[data-theme="light"] .home-mini-grid article,
+:root[data-theme="light"] .comparison-wrap { background: #fff; }
+:root[data-theme="light"] .comparison-table thead th { background: #e7eef8; }
+:root[data-theme="light"] .comparison-table tbody td:last-child { color: #244c80; }
+:root[data-theme="light"] .home-extension-art { background: #fff; }
+:root[data-theme="light"] .site-header nav a,
+:root[data-theme="light"] .site-footer nav a { border-color: transparent; }
+
+.theme-toggle {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .45rem;
+  min-height: 40px;
+  padding: .45rem .75rem;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: .9rem;
+  font-weight: 650;
+  cursor: pointer;
+}
+.theme-toggle:hover { border-color: var(--primary); }
+.theme-toggle:focus-visible { outline: 3px solid #72aaff; outline-offset: 3px; }
+@media(max-width:760px) {
+  .theme-toggle { align-self: flex-start; }
+}

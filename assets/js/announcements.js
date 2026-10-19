@@ -57,6 +57,73 @@
     button.setAttribute("aria-label", `${button.textContent.trim()} — ${sale.textContent}`);
   }
 
+  function renderHomeOffer(item) {
+    const banner = document.querySelector("#home-offer-banner");
+    if (!banner || item.type !== "offer") return false;
+
+    const offer = item.offer || {};
+    const checkout = safeHttpsUrl(item.url || offer.checkout_url);
+    const background = safeHttpsUrl(item.background_image || offer.background_image);
+    const regular = Number(offer.regular_price);
+    const discounted = Number(offer.offer_price);
+    const currency = String(offer.currency || "USD").toUpperCase();
+
+    banner.replaceChildren();
+    banner.classList.add("home-offer-banner");
+    if (background) {
+      const image = document.createElement("img");
+      image.className = "home-offer-banner-image";
+      image.src = background;
+      image.alt = "";
+      image.loading = "lazy";
+      image.setAttribute("aria-hidden", "true");
+      banner.append(image);
+    }
+
+    const content = document.createElement("div");
+    content.className = "home-offer-banner-content";
+    const kicker = document.createElement("p");
+    kicker.className = "home-offer-banner-kicker";
+    kicker.textContent = String(item.type_label || "Limited-time DownGo offer").slice(0, 80);
+    const title = document.createElement("h2");
+    title.id = "home-offer-title";
+    title.textContent = String(item.title || "A special DownGo offer").slice(0, 120);
+    const message = document.createElement("p");
+    message.className = "home-offer-banner-message";
+    message.textContent = String(item.message || "Explore the current offer.").slice(0, 500);
+    content.append(kicker, title, message);
+
+    const validPrice = Number.isFinite(regular) && Number.isFinite(discounted)
+      && regular > 0 && discounted >= 0 && discounted < regular
+      && /^[A-Z]{3}$/.test(currency);
+    if (validPrice) {
+      const price = document.createElement("p");
+      price.className = "home-offer-banner-price";
+      price.textContent = `${money(discounted, currency)}  ·  ${money(regular, currency)} regular price`;
+      content.append(price);
+    }
+    const label = String(offer.label || "").trim();
+    if (label) {
+      const badge = document.createElement("span");
+      badge.className = "home-offer-banner-badge";
+      badge.textContent = label.slice(0, 70);
+      content.append(badge);
+    }
+
+    if (checkout) {
+      const cta = document.createElement("a");
+      cta.className = "home-offer-banner-cta";
+      cta.href = checkout;
+      cta.target = "_blank";
+      cta.rel = "noopener noreferrer";
+      cta.textContent = String(item.button_text || "View offer").slice(0, 40);
+      content.append(cta);
+    }
+    banner.append(content);
+    banner.hidden = false;
+    return true;
+  }
+
   function showPopup(item) {
     const link = safeHttpsUrl(item.url || (item.offer && item.offer.checkout_url));
     const id = String(item.id || "").slice(0, 120);
@@ -72,26 +139,49 @@
       dialog.style.backgroundPosition = "center";
     }
     dialog.setAttribute("aria-labelledby", "downgo-announcement-title");
-    const style = document.createElement("style");
-    style.textContent = `
-      .downgo-announcement-dialog{width:min(92vw,470px);padding:0;border:1px solid #3d73bd;border-radius:16px;background:#101724;color:#f4f7fb;box-shadow:0 24px 80px #000a;font:16px/1.55 "Segoe UI",system-ui,sans-serif}
-      .downgo-announcement-dialog::backdrop{background:#020611b8;backdrop-filter:blur(3px)}
-      .downgo-announcement-inner{padding:24px}.downgo-announcement-kicker{margin:0 0 8px;color:#8db9ff;font-size:.76rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
-      .downgo-announcement-dialog h2{margin:0 0 10px;font-size:1.55rem;line-height:1.2}.downgo-announcement-dialog p{margin:0;color:#b8c5d8;white-space:pre-line}
-      .downgo-announcement-actions{display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap;margin-top:22px}.downgo-announcement-actions button,.downgo-announcement-actions a{font:inherit;font-weight:700;border-radius:8px;padding:10px 14px;text-decoration:none;cursor:pointer}
-      .downgo-announcement-close{color:#d7e1f0;background:#1b2736;border:1px solid #34445a}.downgo-announcement-cta{color:#061323!important;background:#63a2ff;border:1px solid #63a2ff}
-      .downgo-sale-price{font-size:2rem;font-weight:800;color:#8fc0ff}.downgo-original-price{font-size:.88rem!important;color:#9ba9bb!important;text-decoration:line-through}.downgo-sale-note{font-size:.82rem!important;color:#67e8a5!important;font-weight:700}
-    `;
     const inner = document.createElement("div");
     inner.className = "downgo-announcement-inner";
+    const header = document.createElement("div");
+    header.className = "downgo-announcement-header";
     const kicker = document.createElement("p");
     kicker.className = "downgo-announcement-kicker";
     kicker.textContent = item.type === "offer" ? "DownGo offer" : item.type === "update" ? "DownGo update" : "DownGo news";
+    const dismiss = document.createElement("button");
+    dismiss.type = "button";
+    dismiss.className = "downgo-announcement-x";
+    dismiss.setAttribute("aria-label", "Close announcement");
+    dismiss.textContent = "×";
+    dismiss.addEventListener("click", () => dialog.close());
+    header.append(kicker, dismiss);
     const title = document.createElement("h2");
     title.id = "downgo-announcement-title";
     title.textContent = String(item.title || "DownGo notice").slice(0, 120);
     const message = document.createElement("p");
+    message.className = "downgo-announcement-message";
     message.textContent = String(item.message || "").slice(0, 1600);
+    const offer = item.offer || {};
+    const regular = Number(offer.regular_price);
+    const discounted = Number(offer.offer_price);
+    const currency = String(offer.currency || "USD").toUpperCase();
+    const validPrice = item.type === "offer" && Number.isFinite(regular) && Number.isFinite(discounted)
+      && regular > 0 && discounted >= 0 && discounted < regular && /^[A-Z]{3}$/.test(currency);
+    if (validPrice) {
+      const priceBox = document.createElement("div");
+      priceBox.className = "downgo-announcement-price-box";
+      const price = document.createElement("strong");
+      price.className = "downgo-announcement-price";
+      price.textContent = money(discounted, currency);
+      const priceMeta = document.createElement("span");
+      priceMeta.className = "downgo-announcement-price-meta";
+      priceMeta.textContent = `${money(regular, currency)} regular price`;
+      const savings = document.createElement("span");
+      savings.className = "downgo-announcement-savings";
+      savings.textContent = `${Math.round((1 - discounted / regular) * 100)}% off`;
+      priceBox.append(price, priceMeta, savings);
+      inner.append(header, title, message, priceBox);
+    } else {
+      inner.append(header, title, message);
+    }
     const actions = document.createElement("div");
     actions.className = "downgo-announcement-actions";
     const close = document.createElement("button");
@@ -109,14 +199,17 @@
       cta.textContent = String(item.button_text || "View details").slice(0, 40);
       actions.append(cta);
     }
-    inner.append(kicker, title, message, actions);
-    dialog.append(style, inner);
+    inner.append(actions);
+    dialog.append(inner);
     document.body.append(dialog);
     dialog.addEventListener("close", () => {
       try { localStorage.setItem(SEEN_PREFIX + id, "1"); } catch (_) {}
       dialog.remove();
     }, { once: true });
-    if (typeof dialog.showModal === "function") dialog.showModal();
+    if (typeof dialog.showModal === "function") {
+      dialog.showModal();
+      dismiss.focus();
+    }
   }
 
   async function loadAnnouncements() {
@@ -129,6 +222,7 @@
       const active = feed.announcements.find(item => item && item.enabled === true && item.id && item.title && item.message && activeNow(item, now));
       if (!active) return;
       applyPlanOffer(active);
+      renderHomeOffer(active);
       showPopup(active);
     } catch (_) {
       // The public notice feed is optional; the normal site still works when offline.

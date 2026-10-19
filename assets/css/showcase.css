@@ -3,7 +3,7 @@
 .hero-product .subtitle{margin:0 0 1.4rem}
 .hero-product .actions{justify-content:flex-start}
 .hero-visual,.showcase-visual{margin:0;min-width:0}
-.hero-visual img,.showcase-visual img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid rgba(255,255,255,.14);box-shadow:0 22px 55px rgba(0,0,0,.28)}
+.hero-visual img,.hero-visual video,.showcase-visual img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid rgba(255,255,255,.14);box-shadow:0 22px 55px rgba(0,0,0,.28)}
 .hero-visual figcaption{color:#a6b1c2;font-size:.88rem;margin-top:.8rem}
 .showcase-band{width:100vw;margin-left:calc(50% - 50vw);padding:clamp(3rem,7vw,5.5rem) max(1.5rem,calc((100vw - 1120px)/2));background:#f5f7fb;color:#111827}
 .showcase-band:nth-of-type(even){background:#fff}
