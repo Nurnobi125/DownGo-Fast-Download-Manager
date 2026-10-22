@@ -29,6 +29,11 @@
 :root[data-theme="light"] .showcase-visual figcaption,
 :root[data-theme="light"] .showcase-copy p:not(.eyebrow) { color: var(--muted); }
 :root[data-theme="light"] .showcase-copy .eyebrow { color: #195cae; }
+:root[data-theme="light"] .showcase-band.home-hydration { background:linear-gradient(125deg,#e8f2ff 0%,#d9e9ff 100%);color:#172235; }
+:root[data-theme="light"] .home-hydration .showcase-copy .eyebrow { color:#1556a5; }
+:root[data-theme="light"] .showcase-band.home-hydration .showcase-copy p:not(.eyebrow) { color:#334155; }
+:root[data-theme="light"] .home-hydration .showcase-copy .hydration-status { background:#dbeafe;color:#123c70;border-color:#93c5fd; }
+:root[data-theme="light"] .hydration-visual figcaption { color:#526174; }
 :root[data-theme="light"] .home-feature-grid .info-card {
   background: linear-gradient(145deg, #fff, #f7faff);
   border-color: var(--border);
