@@ -1,4 +1,47 @@
 {
   "schema_version": 1,
-  "announcements": []
+  "announcements": [
+    {
+      "id": "downgo-pro-50-percent-all-licenses-2026-10",
+      "enabled": true,
+      "type": "offer",
+      "type_label": "50% OFF · PERSONAL, FAMILY & COMMERCIAL",
+      "title": "Save 50% on every DownGo Pro license",
+      "message": "Looking for a Windows download manager with more control? Get 50% off DownGo Pro Personal, Family, and Commercial licenses. Choose a one-time license for 1 PC, up to 3 household PCs, or up to 10 business PCs. Personal: $5.00 (regularly $9.99). Family: $10.00 (regularly $19.99). Commercial: $25.00 (regularly $49.99). See all plans and purchase options on the official DownGo website.",
+      "button_text": "Choose your license",
+      "url": "https://downgo.online/free-vs-pro.html",
+      "offers": [
+        {
+          "plan": "personal",
+          "name": "Personal",
+          "description": "1 Windows PC · Personal use",
+          "regular_price": 9.99,
+          "offer_price": 5.00,
+          "currency": "USD",
+          "label": "50% off",
+          "checkout_url": "https://ttps1412.gumroad.com/l/downgo-personal"
+        },
+        {
+          "plan": "family",
+          "name": "Family",
+          "description": "Up to 3 Windows PCs · One household",
+          "regular_price": 19.99,
+          "offer_price": 10.00,
+          "currency": "USD",
+          "label": "50% off",
+          "checkout_url": "https://ttps1412.gumroad.com/l/downgo-family"
+        },
+        {
+          "plan": "commercial",
+          "name": "Commercial",
+          "description": "Up to 10 Windows PCs · Business use",
+          "regular_price": 49.99,
+          "offer_price": 25.00,
+          "currency": "USD",
+          "label": "50% off",
+          "checkout_url": "https://ttps1412.gumroad.com/l/downgo-commercial"
+        }
+      ]
+    }
+  ]
 }
