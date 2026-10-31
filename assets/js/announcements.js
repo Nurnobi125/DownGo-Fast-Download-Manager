@@ -23,50 +23,88 @@
   }
 
   function money(value, currency) {
-    try {
-      return new Intl.NumberFormat(undefined, { style: "currency", currency }).format(value);
-    } catch (_) { return `${currency} ${Number(value).toFixed(2)}`; }
+    try { return new Intl.NumberFormat(undefined, { style: "currency", currency }).format(value); }
+    catch (_) { return `${currency} ${Number(value).toFixed(2)}`; }
   }
 
-  function applyPlanOffer(item) {
-    const offer = item && item.offer;
-    if (!offer || !["personal", "family", "commercial"].includes(String(offer.plan || ""))) return;
-    const checkout = safeHttpsUrl(offer.checkout_url);
-    const regular = Number(offer.regular_price);
-    const discounted = Number(offer.offer_price);
-    const currency = String(offer.currency || "USD").toUpperCase();
-    if (!checkout || !Number.isFinite(regular) || !Number.isFinite(discounted) || regular <= 0 || discounted < 0 || discounted >= regular || !/^[A-Z]{3}$/.test(currency)) return;
-
-    const card = document.querySelector(`[data-plan="${offer.plan}"]`);
-    const price = card && card.querySelector(`[data-plan-price="${offer.plan}"]`);
-    const button = card && card.querySelector(`[data-checkout-plan="${offer.plan}"]`);
-    if (!price || !button) return;
-
-    price.replaceChildren();
-    const sale = document.createElement("span");
-    sale.className = "downgo-sale-price";
-    sale.textContent = money(discounted, currency);
-    const original = document.createElement("span");
-    original.className = "downgo-original-price";
-    original.textContent = `${money(regular, currency)} regular price`;
-    const note = document.createElement("span");
-    note.className = "downgo-sale-note";
-    note.textContent = String(offer.label || "Limited-time offer").slice(0, 70);
-    price.append(sale, original, note);
-    button.href = checkout;
-    button.setAttribute("aria-label", `${button.textContent.trim()} — ${sale.textContent}`);
+  function getOffers(item) {
+    const raw = Array.isArray(item && item.offers) ? item.offers : (item && item.offer ? [item.offer] : []);
+    return raw.filter(offer => offer && ["personal", "family", "commercial"].includes(String(offer.plan || "")))
+      .map(offer => {
+        const checkout = safeHttpsUrl(offer.checkout_url);
+        const regular = Number(offer.regular_price);
+        const discounted = Number(offer.offer_price);
+        const currency = String(offer.currency || "USD").toUpperCase();
+        if (!checkout || !Number.isFinite(regular) || !Number.isFinite(discounted) || regular <= 0 || discounted < 0 || discounted >= regular || !/^[A-Z]{3}$/.test(currency)) return null;
+        return { ...offer, checkout, regular, discounted, currency };
+      }).filter(Boolean);
   }
 
-  function renderHomeOffer(item) {
+  function applyPlanOffers(offers) {
+    for (const offer of offers) {
+      const card = document.querySelector(`[data-plan="${offer.plan}"]`);
+      const price = card && card.querySelector(`[data-plan-price="${offer.plan}"]`);
+      const button = card && card.querySelector(`[data-checkout-plan="${offer.plan}"]`);
+      if (!price || !button) continue;
+
+      price.replaceChildren();
+      const sale = document.createElement("span");
+      sale.className = "downgo-sale-price";
+      sale.textContent = money(offer.discounted, offer.currency);
+      const original = document.createElement("span");
+      original.className = "downgo-original-price";
+      original.textContent = `${money(offer.regular, offer.currency)} regular price`;
+      const note = document.createElement("span");
+      note.className = "downgo-sale-note";
+      note.textContent = String(offer.label || "Offer").slice(0, 70);
+      price.append(sale, original, note);
+      button.href = offer.checkout;
+      button.setAttribute("aria-label", `${button.textContent.trim()} — ${sale.textContent}`);
+    }
+  }
+
+  function appendPlanLinks(container, offers, classPrefix) {
+    const list = document.createElement("div");
+    list.className = `${classPrefix}-plan-list`;
+    for (const offer of offers) {
+      const row = document.createElement("div");
+      row.className = `${classPrefix}-plan`;
+      const details = document.createElement("div");
+      const name = document.createElement("strong");
+      name.textContent = String(offer.name || offer.plan).slice(0, 40);
+      const description = document.createElement("span");
+      description.textContent = String(offer.description || "").slice(0, 100);
+      details.append(name, description);
+
+      const price = document.createElement("div");
+      price.className = `${classPrefix}-plan-prices`;
+      const sale = document.createElement("strong");
+      sale.textContent = money(offer.discounted, offer.currency);
+      const original = document.createElement("del");
+      original.textContent = money(offer.regular, offer.currency);
+      price.append(sale, original);
+
+      const buy = document.createElement("a");
+      buy.className = classPrefix === "downgo-announcement" ? "downgo-announcement-cta downgo-announcement-plan-buy" : "home-offer-banner-cta home-offer-plan-buy";
+      buy.href = offer.checkout;
+      buy.target = "_blank";
+      buy.rel = "noopener noreferrer";
+      buy.textContent = `Get ${String(offer.name || offer.plan).slice(0, 30)}`;
+      row.append(details, price, buy);
+      list.append(row);
+    }
+    container.append(list);
+  }
+
+  function renderHomeOffer(item, offers) {
     const banner = document.querySelector("#home-offer-banner");
     if (!banner || item.type !== "offer") return false;
-
-    const offer = item.offer || {};
-    const checkout = safeHttpsUrl(item.url || offer.checkout_url);
-    const background = safeHttpsUrl(item.background_image || offer.background_image);
-    const regular = Number(offer.regular_price);
-    const discounted = Number(offer.offer_price);
-    const currency = String(offer.currency || "USD").toUpperCase();
+    const fallbackOffer = item.offer || {};
+    const checkout = safeHttpsUrl(item.url || fallbackOffer.checkout_url);
+    const background = safeHttpsUrl(item.background_image || fallbackOffer.background_image);
+    const regular = Number(fallbackOffer.regular_price);
+    const discounted = Number(fallbackOffer.offer_price);
+    const currency = String(fallbackOffer.currency || "USD").toUpperCase();
 
     banner.replaceChildren();
     banner.classList.add("home-offer-banner");
@@ -84,7 +122,7 @@
     content.className = "home-offer-banner-content";
     const kicker = document.createElement("p");
     kicker.className = "home-offer-banner-kicker";
-    kicker.textContent = String(item.type_label || "Limited-time DownGo offer").slice(0, 80);
+    kicker.textContent = String(item.type_label || "DownGo offer").slice(0, 80);
     const title = document.createElement("h2");
     title.id = "home-offer-title";
     title.textContent = String(item.title || "A special DownGo offer").slice(0, 120);
@@ -93,30 +131,18 @@
     message.textContent = String(item.message || "Explore the current offer.").slice(0, 500);
     content.append(kicker, title, message);
 
-    const validPrice = Number.isFinite(regular) && Number.isFinite(discounted)
-      && regular > 0 && discounted >= 0 && discounted < regular
-      && /^[A-Z]{3}$/.test(currency);
+    const validPrice = Number.isFinite(regular) && Number.isFinite(discounted) && regular > 0 && discounted >= 0 && discounted < regular && /^[A-Z]{3}$/.test(currency);
     if (validPrice) {
       const price = document.createElement("p");
       price.className = "home-offer-banner-price";
-      price.textContent = `${money(discounted, currency)}  ·  ${money(regular, currency)} regular price`;
+      price.textContent = `${money(discounted, currency)} · ${money(regular, currency)} regular price`;
       content.append(price);
     }
-    const label = String(offer.label || "").trim();
-    if (label) {
-      const badge = document.createElement("span");
-      badge.className = "home-offer-banner-badge";
-      badge.textContent = label.slice(0, 70);
-      content.append(badge);
-    }
-
     if (checkout) {
       const cta = document.createElement("a");
       cta.className = "home-offer-banner-cta";
       cta.href = checkout;
-      cta.target = "_blank";
-      cta.rel = "noopener noreferrer";
-      cta.textContent = String(item.button_text || "View offer").slice(0, 40);
+      cta.textContent = String(item.button_text || "View plans and pricing").slice(0, 40);
       content.append(cta);
     }
     banner.append(content);
@@ -124,11 +150,14 @@
     return true;
   }
 
-  function showPopup(item) {
+  function showPopup(item, offers) {
     const link = safeHttpsUrl(item.url || (item.offer && item.offer.checkout_url));
     const id = String(item.id || "").slice(0, 120);
     if (!id) return;
-    try { if (localStorage.getItem(SEEN_PREFIX + id)) return; } catch (_) {}
+    // Offers reappear on each homepage reload; informational notices remain one-time.
+    if (item.type !== "offer") {
+      try { if (localStorage.getItem(SEEN_PREFIX + id)) return; } catch (_) {}
+    }
 
     const dialog = document.createElement("dialog");
     dialog.className = "downgo-announcement-dialog";
@@ -159,29 +188,9 @@
     const message = document.createElement("p");
     message.className = "downgo-announcement-message";
     message.textContent = String(item.message || "").slice(0, 1600);
-    const offer = item.offer || {};
-    const regular = Number(offer.regular_price);
-    const discounted = Number(offer.offer_price);
-    const currency = String(offer.currency || "USD").toUpperCase();
-    const validPrice = item.type === "offer" && Number.isFinite(regular) && Number.isFinite(discounted)
-      && regular > 0 && discounted >= 0 && discounted < regular && /^[A-Z]{3}$/.test(currency);
-    if (validPrice) {
-      const priceBox = document.createElement("div");
-      priceBox.className = "downgo-announcement-price-box";
-      const price = document.createElement("strong");
-      price.className = "downgo-announcement-price";
-      price.textContent = money(discounted, currency);
-      const priceMeta = document.createElement("span");
-      priceMeta.className = "downgo-announcement-price-meta";
-      priceMeta.textContent = `${money(regular, currency)} regular price`;
-      const savings = document.createElement("span");
-      savings.className = "downgo-announcement-savings";
-      savings.textContent = `${Math.round((1 - discounted / regular) * 100)}% off`;
-      priceBox.append(price, priceMeta, savings);
-      inner.append(header, title, message, priceBox);
-    } else {
-      inner.append(header, title, message);
-    }
+    inner.append(header, title, message);
+    if (offers.length) appendPlanLinks(inner, offers, "downgo-announcement");
+
     const actions = document.createElement("div");
     actions.className = "downgo-announcement-actions";
     const close = document.createElement("button");
@@ -203,9 +212,54 @@
     dialog.append(inner);
     document.body.append(dialog);
     dialog.addEventListener("close", () => {
-      try { localStorage.setItem(SEEN_PREFIX + id, "1"); } catch (_) {}
+      if (item.type !== "offer") {
+        try { localStorage.setItem(SEEN_PREFIX + id, "1"); } catch (_) {}
+      }
       dialog.remove();
     }, { once: true });
+    if (typeof dialog.showModal === "function") {
+      dialog.showModal();
+      dismiss.focus();
+    }
+  }
+
+  function showFallbackHomeOfferPopup() {
+    const banner = document.querySelector("#home-offer-banner");
+    const content = banner && banner.querySelector(".home-offer-banner-content");
+    if (!content || banner.hidden) return;
+
+    const dialog = document.createElement("dialog");
+    dialog.className = "downgo-announcement-dialog";
+    dialog.setAttribute("aria-label", "DownGo 50% offer");
+    const inner = document.createElement("div");
+    inner.className = "downgo-announcement-inner";
+    const header = document.createElement("div");
+    header.className = "downgo-announcement-header";
+    const kicker = document.createElement("p");
+    kicker.className = "downgo-announcement-kicker";
+    kicker.textContent = "DownGo offer";
+    const dismiss = document.createElement("button");
+    dismiss.type = "button";
+    dismiss.className = "downgo-announcement-x";
+    dismiss.setAttribute("aria-label", "Close offer");
+    dismiss.textContent = "×";
+    dismiss.addEventListener("click", () => dialog.close());
+    header.append(kicker, dismiss);
+    const offerContent = content.cloneNode(true);
+    offerContent.querySelectorAll("[id]").forEach(element => element.removeAttribute("id"));
+    inner.append(header, offerContent);
+    const actions = document.createElement("div");
+    actions.className = "downgo-announcement-actions";
+    const close = document.createElement("button");
+    close.type = "button";
+    close.className = "downgo-announcement-close";
+    close.textContent = "Not now";
+    close.addEventListener("click", () => dialog.close());
+    actions.append(close);
+    inner.append(actions);
+    dialog.append(inner);
+    document.body.append(dialog);
+    dialog.addEventListener("close", () => dialog.remove(), { once: true });
     if (typeof dialog.showModal === "function") {
       dialog.showModal();
       dismiss.focus();
@@ -215,17 +269,36 @@
   async function loadAnnouncements() {
     try {
       const response = await fetch(FEED_URL, { cache: "no-store", headers: { Accept: "application/json" } });
-      if (!response.ok) return;
+      if (!response.ok) {
+        showFallbackHomeOfferPopup();
+        return;
+      }
       const feed = await response.json();
-      if (!feed || !Array.isArray(feed.announcements)) return;
+      if (!feed || !Array.isArray(feed.announcements)) {
+        showFallbackHomeOfferPopup();
+        return;
+      }
       const now = new Date();
       const active = feed.announcements.find(item => item && item.enabled === true && item.id && item.title && item.message && activeNow(item, now));
-      if (!active) return;
-      applyPlanOffer(active);
-      renderHomeOffer(active);
-      showPopup(active);
+      if (!active) {
+        // The homepage contains a readable static offer fallback for crawlers and no-JS visitors.
+        // Once the live feed loads successfully, it is authoritative and can hide an expired offer.
+        const banner = document.querySelector("#home-offer-banner");
+        if (banner) banner.hidden = true;
+        return;
+      }
+      const offers = getOffers(active);
+      applyPlanOffers(offers);
+      renderHomeOffer(active, offers);
+      // Show the active offer only on the homepage, alongside its persistent banner.
+      if (active.type === "offer") {
+        if (document.querySelector("#home-offer-banner")) showPopup(active, offers);
+      } else {
+        showPopup(active, offers);
+      }
     } catch (_) {
-      // The public notice feed is optional; the normal site still works when offline.
+      // Keep the local-file preview useful when fetch() cannot read announcements.json.
+      showFallbackHomeOfferPopup();
     }
   }
 

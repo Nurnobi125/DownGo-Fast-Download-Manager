@@ -32,7 +32,8 @@
   object-position: center;
 }
 .home-offer-banner-content {
-  max-width: 760px;
+  width: 100%;
+  max-width: none;
   padding: clamp(24px, 5vw, 46px);
 }
 .home-offer-banner-kicker {
@@ -48,6 +49,16 @@
   color: #fff;
   font-size: clamp(1.6rem, 3.4vw, 2.35rem);
   line-height: 1.15;
+}
+.home-offer-banner-content h2::before {
+  display:inline-block;
+  width:54px;
+  height:54px;
+  margin-right:12px;
+  background:url("../img/offer-50-off.png") center/contain no-repeat;
+  content:"";
+  vertical-align:middle;
+  filter:drop-shadow(0 5px 12px rgba(0,0,0,.3));
 }
 .home-offer-banner-message { margin: 0; max-width: 62ch; color: #d4e2f3; line-height: 1.65; }
 .home-offer-banner-price { margin: 14px 0 0; color: #fff; font-size: 1.15rem; font-weight: 800; }
@@ -78,6 +89,25 @@
 }
 .home-offer-banner-cta:hover { background: #9acaff; border-color: #9acaff; }
 .home-offer-banner-cta:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.home-offer-banner-plan-list { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:22px }
+.home-offer-banner-plan { display:grid;align-content:start;gap:10px;min-width:0;padding:18px;border:1px solid rgba(137,190,255,.3);border-radius:15px;background:linear-gradient(155deg,rgba(14,31,53,.94),rgba(5,14,27,.72));box-shadow:0 10px 24px rgba(0,0,0,.14);transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease }
+.home-offer-banner-plan:hover { transform:translateY(-3px);border-color:rgba(115,180,255,.72);box-shadow:0 15px 30px rgba(0,0,0,.24) }
+.home-offer-banner-plan>div:first-child { display:grid;gap:3px }
+.home-offer-banner-plan>div:first-child strong { color:#fff;font-size:1.08rem }
+.home-offer-banner-plan>div:first-child span { color:#d4e2f3;font-size:.82rem }
+.home-offer-banner-plan-prices { display:flex;align-items:baseline;gap:9px }
+.home-offer-banner-plan-prices strong { color:#9cf3c5;font-size:1.55rem;letter-spacing:-.035em }
+.home-offer-banner-plan-prices del { color:#bfccdc;font-size:.85rem }
+.home-offer-banner-plan-buy { width:100%;margin-top:3px;min-height:46px;padding:10px 12px;font-size:.92rem;box-shadow:0 7px 18px rgba(68,142,235,.19) }
+.downgo-announcement-plan-list { display:grid;gap:9px;margin-top:18px }
+.downgo-announcement-plan { display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:12px;padding:12px;border:1px solid rgba(115,180,255,.28);border-radius:12px;background:rgba(18,31,49,.78) }
+.downgo-announcement-plan>div:first-child { display:grid;gap:3px }
+.downgo-announcement-plan>div:first-child strong { color:#f4f7fb }
+.downgo-announcement-plan>div:first-child span { color:#aebbd0;font-size:.78rem }
+.downgo-announcement-plan-prices { display:grid;gap:2px;text-align:right }
+.downgo-announcement-plan-prices strong { color:#9acaff;font-size:1.1rem }
+.downgo-announcement-plan-prices del { color:#aab7c8;font-size:.78rem }
+.downgo-announcement-plan-buy { min-height:38px!important;padding:7px 10px!important;font-size:.82rem!important;white-space:nowrap }
 
 /* Announcement / offer dialog */
 .downgo-announcement-dialog {
@@ -95,6 +125,13 @@
 }
 .downgo-announcement-dialog::backdrop { background: rgba(2, 6, 17, .78); backdrop-filter: blur(5px); }
 .downgo-announcement-inner { position: relative; padding: clamp(22px, 5vw, 34px); }
+.downgo-announcement-dialog .home-offer-banner-content { width:auto;max-width:none;padding:0 }
+.downgo-announcement-dialog .home-offer-banner-content h2 { margin:0 0 10px;color:#fff;font-size:clamp(1.55rem,6vw,2rem);line-height:1.16;letter-spacing:-.025em }
+.downgo-announcement-dialog .home-offer-banner-content h2::before { width:38px;height:38px;margin-right:8px }
+.downgo-announcement-dialog .home-offer-banner-plan-list { grid-template-columns:1fr;gap:8px;margin-top:14px }
+.downgo-announcement-dialog .home-offer-banner-plan { grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:8px;padding:11px }
+.downgo-announcement-dialog .home-offer-banner-plan-prices { grid-column:1;grid-row:2 }
+.downgo-announcement-dialog .home-offer-banner-plan-buy { grid-column:2;grid-row:2;width:auto;min-width:118px;min-height:40px;margin:0;padding:8px 10px;font-size:.84rem }
 .downgo-announcement-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
 .downgo-announcement-kicker { margin: 0 0 16px; color: #91c5ff; font-size: .76rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
 .downgo-announcement-x { display: grid; width: 36px; height: 36px; flex: 0 0 auto; place-items: center; margin: -8px -8px 8px 0; border: 1px solid #34445a; border-radius: 50%; background: #182438; color: #e8f1fc; font: 25px/1 system-ui; cursor: pointer; }
@@ -117,6 +154,9 @@
   .downgo-announcement-actions { display: grid; grid-template-columns: 1fr; }
   .downgo-announcement-actions button, .downgo-announcement-actions a { width: 100%; }
   .downgo-announcement-savings { margin-left: 0; }
+  .downgo-announcement-plan { grid-template-columns:1fr auto;gap:8px }
+  .downgo-announcement-plan-prices { text-align:right }
+  .downgo-announcement-plan-buy { grid-column:1/-1 }
 }
 @media (prefers-reduced-motion: no-preference) {
   .downgo-announcement-dialog[open] { animation: downgo-offer-enter .18s ease-out; }
@@ -124,5 +164,36 @@
 }
 @media (max-width: 700px) {
   .home-offer-banner { min-height: 210px; margin: 18px 16px 32px; border-radius: 16px; }
+  .home-offer-banner-plan-list { grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:16px }
+  .home-offer-banner-plan { padding:14px }
+  .home-offer-banner-plan-prices strong { font-size:1.35rem }
   .home-offer-banner::after { background: rgba(5, 12, 23, .78); }
+}
+@media (max-width: 480px) {
+  .home-offer-banner-content h2::before { width:42px;height:42px;margin-right:8px }
+  .home-offer-banner-plan-list { grid-template-columns:1fr }
+  .home-offer-banner-plan { grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:8px 12px }
+  .home-offer-banner-plan>div:first-child { grid-column:1/-1 }
+  .home-offer-banner-plan-prices { grid-column:1;grid-row:2 }
+  .home-offer-banner-plan-buy { grid-column:2;grid-row:2;width:auto;min-width:118px;min-height:42px;margin:0;padding:8px 10px;font-size:.84rem }
+}
+@media (prefers-reduced-motion:reduce) {
+  .home-offer-banner-plan { transition:none }
+  .home-offer-banner-plan:hover { transform:none }
+}
+
+/* Homepage promotion stays visible without pushing the download action below the fold. */
+.home-offer-banner.home-offer-compact { min-height: 0; margin: 0 auto 2.4rem; border-radius: 16px; }
+.home-offer-banner.home-offer-compact .home-offer-banner-content { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: .25rem 1.5rem; padding: 1.15rem clamp(1rem, 2.6vw, 1.6rem); }
+.home-offer-banner.home-offer-compact .home-offer-banner-kicker { grid-column: 1; margin: 0; font-size: .7rem; }
+.home-offer-banner.home-offer-compact h2 { grid-column: 1; margin: .1rem 0; font-size: clamp(1.2rem, 2vw, 1.55rem); }
+.home-offer-banner.home-offer-compact h2::before { width: 38px; height: 38px; margin-right: 8px; }
+.home-offer-banner.home-offer-compact .home-offer-banner-message { grid-column: 1; font-size: .9rem; line-height: 1.45; }
+.home-offer-banner.home-offer-compact .home-offer-banner-price,
+.home-offer-banner.home-offer-compact .home-offer-banner-plan-list { display: none; }
+.home-offer-banner.home-offer-compact .home-offer-banner-cta { grid-column: 2; grid-row: 1 / span 3; min-width: 190px; margin: 0; }
+@media (max-width: 600px) {
+  .home-offer-banner.home-offer-compact { margin-inline: .85rem; margin-bottom: 2rem; }
+  .home-offer-banner.home-offer-compact .home-offer-banner-content { grid-template-columns: minmax(0, 1fr); gap: .4rem; }
+  .home-offer-banner.home-offer-compact .home-offer-banner-cta { grid-column: 1; grid-row: auto; justify-self: start; min-width: 0; margin-top: .55rem; }
 }

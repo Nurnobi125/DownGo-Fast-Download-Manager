@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://downgo.online/</loc></url>
+  <url><loc>https://downgo.online/</loc><lastmod>2026-11-01</lastmod></url>
+  <url><loc>https://downgo.online/windows-download-manager.html</loc><lastmod>2026-11-01</lastmod></url>
   <url><loc>https://downgo.online/features.html</loc></url>
+  <url><loc>https://downgo.online/changelog.html</loc></url>
   <url><loc>https://downgo.online/coming-soon.html</loc></url>
   <url><loc>https://downgo.online/browser-extension.html</loc></url>
   <url><loc>https://downgo.online/link-grabber.html</loc></url>
   <url><loc>https://downgo.online/video-downloader.html</loc></url>
   <url><loc>https://downgo.online/download.html</loc></url>
+  <url><loc>https://downgo.online/linux-download-manager.html</loc><lastmod>2026-11-01</lastmod></url>
   <url><loc>https://downgo.online/contact.html</loc></url>
   <url><loc>https://downgo.online/free-vs-pro.html</loc></url>
   <url><loc>https://downgo.online/faq.html</loc></url>
