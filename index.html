@@ -24,7 +24,7 @@
 <script>try{var savedTheme=localStorage.getItem("downgo-site-theme");if(savedTheme==="light"||savedTheme==="dark"){document.documentElement.dataset.theme=savedTheme}}catch(e){}</script><link rel="stylesheet" href="assets/css/theme-toggle.css"></head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header"><a class="logo" href="index.html" aria-label="DownGo home">DownGo</a><nav aria-label="Main navigation"><a href="features.html">Features</a><a href="download.html">Download</a><a href="browser-extension.html">Browser</a><a href="windows-download-manager.html">Windows</a><a href="linux-download-manager.html">Linux</a><a href="free-vs-pro.html">Plans &amp; Pricing</a><a href="coming-soon.html" class="roadmap-nav-link">Roadmap</a><a href="blog/">Blog</a><a href="help/">Help</a></nav></header>
+  <header class="site-header"><a class="logo" href="/" aria-label="DownGo home">DownGo</a><nav aria-label="Main navigation"><a href="features.html">Features</a><a href="download.html">Download</a><a href="browser-extension.html">Browser</a><a href="windows-download-manager.html">Windows</a><a href="linux-download-manager.html">Linux</a><a href="free-vs-pro.html">Plans &amp; Pricing</a><a href="coming-soon.html" class="roadmap-nav-link">Roadmap</a><a href="blog/">Blog</a><a href="help/">Help</a></nav></header>
   <main id="main">
     <section class="hero hero-product home-hero">
       <div class="hero-copy"><p class="eyebrow">DownGo 4.1.2 for Windows · Linux version listed separately</p><h1>Your downloads. In control.</h1><p class="subtitle">Organize downloads, manage queues, and monitor transfers in one Windows app. Pause or resume compatible downloads, send links from your browser, and inspect supported media streams. Pro offers up to 32 connections when the server allows them.</p>
@@ -58,15 +58,59 @@
   <a class="license-community-cta" href="free-vs-pro.html">Explore lifetime plans <span aria-hidden="true">→</span></a>
 </section>
 
-    <section class="content-section home-overview"><div class="section-heading"><p class="eyebrow">A complete download workspace</p><h2>More than a download button</h2><p>From adding a link to checking a finished file, DownGo gives you practical controls throughout the transfer.</p></div>
+    <section class="content-section home-overview">
+      <div class="section-heading">
+        <p class="eyebrow">A complete download workspace</p>
+        <h2>Engineered for Performance &amp; Privacy</h2>
+        <p>From multi-part acceleration to video stream inspection and BitTorrent transfers, DownGo organizes all your downloads into one powerful desktop workspace.</p>
+      </div>
       <div class="home-feature-grid">
-        <article class="info-card"><span class="feature-icon" aria-hidden="true">↗</span><h3>Multi-connection transfers</h3><p>Use adaptive parallel connections where the server supports them. Free allows up to 4; Pro allows up to 32. Actual speed depends on the host and network.</p></article>
-        <article class="info-card"><span class="feature-icon" aria-hidden="true">⏯</span><h3>Pause, resume, retry</h3><p>Manage active transfers and retry interruptions. Resume support depends on the remote server and whether the file has changed.</p></article>
-        <article class="info-card"><span class="feature-icon" aria-hidden="true">☷</span><h3>Queues and scheduling</h3><p>Batch links, organize the queue, and use Pro scheduling tools to plan transfers.</p></article>
-        <article class="info-card"><span class="feature-icon" aria-hidden="true">▣</span><h3>Browser integration</h3><p>Send selected links and supported browser downloads from the DownGo extension to the desktop app.</p><a class="card-link" href="browser-extension.html">See extension setup →</a></article>
-        <article class="info-card"><span class="feature-icon" aria-hidden="true">◉</span><h3>Media and file tools</h3><p>Inspect supported media streams, convert files, extract archives, and review download insights. Availability depends on the source and plan.</p></article>
-        <article class="info-card"><span class="feature-icon" aria-hidden="true">⚙</span><h3>Download profiles</h3><p>Choose Balanced, High Speed, Low Data, or Battery Friendly settings for your session.</p></article>
-      </div>      <p class="home-fineprint">Media support, quality options, resume, and acceleration vary by source, file format, network, and license. Only download content you are authorized to access.</p>
+        <article class="info-card">
+          <span class="category-badge badge-core" style="margin-bottom:0.6rem;">⚡ Core Engine</span>
+          <h3>Adaptive Multi-Threaded Transfers</h3>
+          <p>Splits downloads into parallel dynamic byte ranges with up to 32 connections in Pro and 4 in Free. Features intelligent tail-splitting and auto-backoff.</p>
+        </article>
+        <article class="info-card">
+          <span class="category-badge badge-media" style="margin-bottom:0.6rem;">🎬 Media &amp; Streams</span>
+          <h3>Native HLS &amp; DASH Video Engine</h3>
+          <p>Captures multi-quality 4K/1080p video streams with automatic audio muxing (FFmpeg) and YouTube HD readiness on Windows 10 &amp; 11.</p>
+        </article>
+        <article class="info-card">
+          <span class="category-badge badge-torrent" style="margin-bottom:0.6rem;">🧲 BitTorrent</span>
+          <h3>Built-in Magnet &amp; P2P Downloads</h3>
+          <p>Download torrents and magnet links with DHT and UPnP port forwarding directly inside DownGo without installing third-party torrent clients.</p>
+        </article>
+        <article class="info-card">
+          <span class="category-badge badge-pro" style="margin-bottom:0.6rem;">👑 Pro Power Tools</span>
+          <h3>Speed Test, Sniffer &amp; Mobile Remote</h3>
+          <p>Includes built-in Network Speed Test, Media Sniffer, Web Link Grabber, Video Converter, and private QR-paired Mobile Remote Control.</p>
+        </article>
+        <article class="info-card">
+          <span class="category-badge badge-windows" style="margin-bottom:0.6rem;">🖥️ Windows 11</span>
+          <h3>Live Taskbar Progress &amp; Fluent UI</h3>
+          <p>Real-time progress bars directly on your Windows taskbar icon, floating Pro pill badges, customizable button icons, and dark/glass themes.</p>
+        </article>
+        <article class="info-card">
+          <span class="category-badge badge-security" style="margin-bottom:0.6rem;">🛡️ Privacy &amp; Security</span>
+          <h3>DPAPI Encryption &amp; Resource Saver</h3>
+          <p>Windows Defender background scans, hardware-backed DPAPI encrypted storage, battery saver mode, and zero telemetry.</p>
+        </article>
+        <article class="info-card">
+          <span class="category-badge badge-automation" style="margin-bottom:0.6rem;">⚙️ Automation</span>
+          <h3>Smart Scheduler &amp; Watch Folder</h3>
+          <p>Off-peak night download scheduler, clipboard URL capture, smart category rules, and automatic ZIP archive extraction.</p>
+        </article>
+        <article class="info-card">
+          <span class="category-badge badge-browser" style="margin-bottom:0.6rem;">🌐 Browser Companion</span>
+          <h3>1-Click Extension Interception</h3>
+          <p>Manifest V3 companion for Chrome, Brave, Edge &amp; Firefox with on-page video download overlays and seamless browser failover.</p>
+          <a class="card-link" href="browser-extension.html">See extension setup →</a>
+        </article>
+      </div>
+      <p class="text-link" style="text-align:center; margin-top:1.5rem;">
+        <a class="btn btn-outline" href="features.html">Explore all features &amp; screenshot gallery →</a>
+      </p>
+      <p class="home-fineprint">Media support, quality options, resume, and acceleration vary by source, file format, network, and license. Only download content you are authorized to access.</p>
     </section>
 
     <section class="showcase-band home-hydration" id="cloud-to-local-hydration" aria-labelledby="hydration-title">
@@ -131,6 +175,77 @@
 
     <section class="callout"><div><p class="eyebrow">Choose your platform</p><h2>Get DownGo for Windows or Linux</h2><p>Windows users can install from Microsoft Store. Linux Mint, Ubuntu, and Debian users can download the 64-bit .deb package and follow the Linux setup guide.</p></div><div class="actions"><a class="btn" href="https://apps.microsoft.com/detail/9pp082npwr27?hl=en-US&amp;gl=GB" target="_blank" rel="noopener noreferrer">Windows · Microsoft Store</a><a class="btn btn-outline" href="linux-download-manager.html">Linux · Download and setup</a></div></section>
   </main>
-  <footer class="site-footer"><div class="footer-brand-block"><strong class="footer-brand-name">Rafix Technologies</strong><span class="footer-brand-roles">Company · Publisher · Developer</span><span class="footer-origin"><span aria-hidden="true">🇧🇩</span> Built in Bangladesh</span><span class="footer-copyright">© DownGo</span></div><a class="btn footer-store-cta" href="https://apps.microsoft.com/detail/9pp082npwr27?hl=en-US&amp;gl=GB" target="_blank" rel="noopener noreferrer">Get DownGo from Microsoft Store <span aria-hidden="true">↗</span></a><nav aria-label="Footer navigation"><a href="download.html">Windows download</a><a href="linux-download-manager.html">Linux download</a><a href="about.html">About</a><a href="about-the-developer.html">About the Developer</a><a href="how-downgo-was-built.html">How DownGo Was Built</a><a href="coming-soon.html">Coming Soon</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="https://www.facebook.com/profile.php?id=61595536228244" target="_blank" rel="noopener noreferrer">Official Facebook Page</a></nav></footer>
+    <footer class="site-footer seo-footer">
+    <div class="footer-grid">
+      <div class="footer-col footer-about-col">
+        <a class="footer-logo" href="/">DownGo</a>
+        <p class="footer-tagline">Fast, modern, multi-threaded download manager and stream extractor for Windows and Linux.</p>
+        <div class="footer-meta">
+          <strong>Rafix Technologies</strong>
+          <span><span aria-hidden="true">🇧🇩</span> Built in Bangladesh</span>
+          <span>© 2026 DownGo. All rights reserved.</span>
+        </div>
+        <a class="btn footer-store-cta" href="https://apps.microsoft.com/detail/9pp082npwr27?hl=en-US&amp;gl=GB" target="_blank" rel="noopener noreferrer">Get on Microsoft Store <span aria-hidden="true">↗</span></a>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Products &amp; Plans</h3>
+        <ul class="footer-links">
+          <li><a href="/windows-download-manager.html">Windows Downloader</a></li>
+          <li><a href="/linux-download-manager.html">Linux Edition</a></li>
+          <li><a href="/features.html">Features &amp; Capabilities</a></li>
+          <li><a href="/download.html">Download Center</a></li>
+          <li><a href="/free-vs-pro.html">Free vs Pro Plans</a></li>
+          <li><a href="/browser-extension.html">Chrome Extension</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Tools &amp; Features</h3>
+        <ul class="footer-links">
+          <li><a href="/video-downloader.html">Media Stream Sniffer</a></li>
+          <li><a href="/link-grabber.html">Link Grabber Scraper</a></li>
+          <li><a href="/converter.html">Video Converter</a></li>
+          <li><a href="/features.html#bittorrent">BitTorrent Downloads</a></li>
+          <li><a href="/changelog.html">Version Changelog</a></li>
+          <li><a href="/coming-soon.html">Product Roadmap</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Help &amp; Guides</h3>
+        <ul class="footer-links">
+          <li><a href="/help/">Help Center</a></li>
+          <li><a href="/help/getting-started.html">Getting Started</a></li>
+          <li><a href="/help/downloads.html">Managing Downloads</a></li>
+          <li><a href="/help/browser-integration.html">Browser Setup</a></li>
+          <li><a href="/help/troubleshooting.html">Troubleshooting</a></li>
+          <li><a href="/blog/download-speed-guide.html">Speed Guide</a></li>
+          <li><a href="/blog/download-manager-guide.html">Downloader Guide</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Company &amp; Legal</h3>
+        <ul class="footer-links">
+          <li><a href="/about.html">About DownGo</a></li>
+          <li><a href="/about-the-developer.html">About Developer</a></li>
+          <li><a href="/how-downgo-was-built.html">How It Was Built</a></li>
+          <li><a href="/faq.html">FAQ</a></li>
+          <li><a href="/contact.html">Contact Us</a></li>
+          <li><a href="/support.html">Support Desk</a></li>
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom-bar">
+      <span>Official website: <a href="https://downgo.online/">downgo.online</a> · Support: <a href="mailto:contact@downgo.online">contact@downgo.online</a></span>
+      <div class="footer-bottom-links">
+        <a href="https://www.facebook.com/profile.php?id=61595536228244" target="_blank" rel="noopener noreferrer">Official Facebook</a>
+        <a href="/sitemap.xml">XML Sitemap</a>
+      </div>
+    </div>
+  </footer>
 <script src="/assets/js/announcements.js" defer></script><script src="assets/js/theme-toggle.js" defer></script></body>
 </html>
