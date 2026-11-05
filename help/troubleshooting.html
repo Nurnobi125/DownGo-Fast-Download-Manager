@@ -1,8 +1,165 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Resolve interruptions by checking your connection, the remote server, file permissions, and disk space."><meta name="robots" content="index,follow"><title>Troubleshooting Downloads | DownGo</title><link rel="canonical" href="https://downgo.online/help/troubleshooting.html"><meta property="og:type" content="website"><meta property="og:title" content="Troubleshooting Downloads | DownGo"><meta property="og:description" content="Resolve interruptions by checking your connection, the remote server, file permissions, and disk space."><meta property="og:url" content="https://downgo.online/help/troubleshooting.html"><link rel="stylesheet" href="../assets/css/style.css"><link rel="icon" type="image/png" sizes="128x128" href="../assets/icons/downgo-icon.png">
-<link rel="stylesheet" href="../assets/css/brand.css">
-<link rel="stylesheet" href="../assets/css/responsive.css">
-<script>try{var savedTheme=localStorage.getItem("downgo-site-theme");if(savedTheme==="light"||savedTheme==="dark"){document.documentElement.dataset.theme=savedTheme}}catch(e){}</script><link rel="stylesheet" href="../assets/css/theme-toggle.css"></head>
-<body><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><a class="logo" href="../index.html">DownGo</a><nav aria-label="Main navigation"><a href="../features.html">Features</a><a href="../download.html">Download</a><a href="../browser-extension.html">Browser</a><a href="../windows-download-manager.html">Windows</a><a href="../linux-download-manager.html">Linux</a><a href="../free-vs-pro.html">Plans &amp; Pricing</a><a href="../coming-soon.html" class="roadmap-nav-link">Roadmap</a><a href="../blog/">Blog</a><a href="../help/" aria-current="page">Help</a></nav></header><main id="main" class="page-wrap prose"><p class="eyebrow">DownGo</p><h1>Troubleshooting Downloads</h1><p class="lead">Resolve interruptions by checking your connection, the remote server, file permissions, and disk space.</p><h2>Connection timed out</h2><p>Check your network and try again later. The server may be unavailable or limiting requests.</p><h2>Resume failed</h2><p>The server may not support resume, or the remote file may have changed.</p><h2>Not enough space</h2><p>Check free space on the destination drive and confirm that the folder is writable.</p><h2>Checksum mismatch</h2><p>Download again from the official source and compare with a trusted checksum.</p></main><footer class="site-footer"><div class="footer-brand-block"><strong class="footer-brand-name">Rafix Technologies</strong><span class="footer-brand-roles">Company · Publisher · Developer</span><span class="footer-origin"><span aria-hidden="true">🇧🇩</span> Built in Bangladesh</span><span class="footer-copyright">© DownGo</span></div><a class="btn footer-store-cta" href="https://apps.microsoft.com/detail/9pp082npwr27?hl=en-US&amp;gl=GB" target="_blank" rel="noopener noreferrer">Get DownGo from Microsoft Store <span aria-hidden="true">↗</span></a><nav aria-label="Footer navigation"><a href="../about.html">About</a><a href="../contact.html">Contact</a><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a><a href="https://www.facebook.com/profile.php?id=61595536228244" target="_blank" rel="noopener noreferrer">Official Facebook Page</a></nav></footer><script src="/assets/js/announcements.js" defer></script><script src="../assets/js/theme-toggle.js" defer></script></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Troubleshoot common download errors in DownGo: fix 403 Forbidden, 429 Too Many Requests, connection timeouts, resume failures, and checksum mismatches.">
+  <meta name="robots" content="index,follow">
+  <title>Troubleshooting Download Errors &amp; Fixes | DownGo Help</title>
+  <link rel="canonical" href="https://downgo.online/help/troubleshooting.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Troubleshooting Download Errors &amp; Fixes | DownGo Help">
+  <meta property="og:description" content="Resolve common download errors, expired link tokens, network timeouts, and resume issues in DownGo.">
+  <meta property="og:url" content="https://downgo.online/help/troubleshooting.html">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="icon" type="image/png" sizes="128x128" href="../assets/icons/downgo-icon.png">
+  <link rel="stylesheet" href="../assets/css/brand.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+  <link rel="stylesheet" href="../assets/css/site-upgrade.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Troubleshooting Download Errors and Connection Issues in DownGo",
+    "description": "Comprehensive troubleshooting guide for resolving HTTP 403, 404, 429 rate limits, network timeouts, and file verification failures.",
+    "author": {
+      "@type": "Organization",
+      "name": "Rafix Technologies"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DownGo"
+    },
+    "datePublished": "2026-10-22",
+    "dateModified": "2026-11-06"
+  }
+  </script>
+  <script>try{var savedTheme=localStorage.getItem("downgo-site-theme");if(savedTheme==="light"||savedTheme==="dark"){document.documentElement.dataset.theme=savedTheme}}catch(e){}</script>
+  <link rel="stylesheet" href="../assets/css/theme-toggle.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="logo" href="/">DownGo</a>
+    <nav aria-label="Main navigation">
+      <a href="../features.html">Features</a>
+      <a href="../download.html">Download</a>
+      <a href="../browser-extension.html">Browser</a>
+      <a href="../windows-download-manager.html">Windows</a>
+      <a href="../linux-download-manager.html">Linux</a>
+      <a href="../free-vs-pro.html">Plans &amp; Pricing</a>
+      <a href="../coming-soon.html" class="roadmap-nav-link">Roadmap</a>
+      <a href="../blog/">Blog</a>
+      <a href="../help/" aria-current="page">Help</a>
+    </nav>
+  </header>
+  <main id="main" class="page-wrap prose">
+    <p class="eyebrow">DownGo Help Center · Troubleshooting</p>
+    <h1>Troubleshooting Download Errors &amp; Fixes</h1>
+    <p class="lead">If a download stops, fails, or fails to resume, consult this diagnosis guide to understand the error cause and find the recommended solution.</p>
 
+    <h2>1. HTTP 403 Forbidden (Expired Link / Token)</h2>
+    <p>Many file hosting services and video streaming CDNs generate temporary download links with short expiration timers (e.g. 1 to 2 hours). If your download pauses and resumes after the token expires, the server returns <code>HTTP 403 Forbidden</code>.</p>
+    <p><strong>Fix:</strong> Right-click the failed task in DownGo and select <strong>Refresh Link</strong>. Re-visit the original download page in your browser, copy the new link, paste it into the prompt, and click <em>Update</em>. DownGo will resume from your existing downloaded bytes without restarting.</p>
 
+    <h2>2. HTTP 429 Too Many Requests (Rate Limiting)</h2>
+    <p>Some servers restrict how many concurrent requests an IP can make. If you configure DownGo to use 32 parallel connections on an aggressive host, the server may temporarily reject requests with <code>HTTP 429</code>.</p>
+    <p><strong>Fix:</strong> Go to <em>Settings &gt; Performance</em> and switch the <strong>Acceleration Profile</strong> to <em>Balanced</em> or reduce parallel connections to 4 or 8. DownGo's built-in <em>Adaptive Gate</em> will automatically back off when it detects rate limits.</p>
+
+    <h2>3. Connection Timed Out / Network Dropped</h2>
+    <p>This occurs when the remote server is overloaded or your local Wi-Fi drops momentarily. DownGo features exponential backoff auto-retry. Check that your internet connection is active, then right-click the task and select <strong>Resume</strong>.</p>
+
+    <h2>4. Resume Not Supported by Server</h2>
+    <p>If the remote host ignores HTTP Range headers (<code>Accept-Ranges: bytes</code>), the file cannot be divided into multi-part chunks or resumed after pausing. DownGo will notify you with <em>Resume support: No</em>. If paused, single-stream downloads must start from the beginning.</p>
+
+    <h2>5. Disk Space &amp; Write Permission Errors</h2>
+    <p>Before beginning large multi-gigabyte transfers, ensure your target drive has at least 15% free headroom. If you are downloading to an external USB drive, verify that the drive has write permissions enabled and is formatted with NTFS or exFAT (FAT32 has a strict 4 GB file size limit).</p>
+
+    <h2>6. SHA-256 Checksum Mismatch</h2>
+    <p>If DownGo alerts you to a checksum mismatch, the downloaded file's cryptographic hash does not match the publisher's stated hash. This indicates a truncated transfer or server-side corruption. Delete the partial file and re-download from the official source.</p>
+
+    <div class="callout">
+      <div>
+        <h3>Still Facing Issues?</h3>
+        <p>Our engineering team can assist you with specific server logs and diagnostics.</p>
+      </div>
+      <a class="btn" href="../contact.html">Submit a Support Ticket</a>
+    </div>
+  </main>
+
+  <footer class="site-footer seo-footer">
+    <div class="footer-grid">
+      <div class="footer-col footer-about-col">
+        <a class="footer-logo" href="/">DownGo</a>
+        <p class="footer-tagline">Fast, modern, multi-threaded download manager and stream extractor for Windows and Linux.</p>
+        <div class="footer-meta">
+          <strong>Rafix Technologies</strong>
+          <span><span aria-hidden="true">🇧🇩</span> Built in Bangladesh</span>
+          <span>© 2026 DownGo. All rights reserved.</span>
+        </div>
+        <a class="btn footer-store-cta" href="https://apps.microsoft.com/detail/9pp082npwr27?hl=en-US&amp;gl=GB" target="_blank" rel="noopener noreferrer">Get on Microsoft Store <span aria-hidden="true">↗</span></a>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Products &amp; Plans</h3>
+        <ul class="footer-links">
+          <li><a href="/windows-download-manager.html">Windows Downloader</a></li>
+          <li><a href="/linux-download-manager.html">Linux Edition</a></li>
+          <li><a href="/features.html">Features &amp; Capabilities</a></li>
+          <li><a href="/download.html">Download Center</a></li>
+          <li><a href="/free-vs-pro.html">Free vs Pro Plans</a></li>
+          <li><a href="/browser-extension.html">Chrome Extension</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Tools &amp; Features</h3>
+        <ul class="footer-links">
+          <li><a href="/video-downloader.html">Media Stream Sniffer</a></li>
+          <li><a href="/link-grabber.html">Link Grabber Scraper</a></li>
+          <li><a href="/converter.html">Video Converter</a></li>
+          <li><a href="/features.html#bittorrent">BitTorrent Downloads</a></li>
+          <li><a href="/changelog.html">Version Changelog</a></li>
+          <li><a href="/coming-soon.html">Product Roadmap</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Help &amp; Guides</h3>
+        <ul class="footer-links">
+          <li><a href="/help/">Help Center</a></li>
+          <li><a href="/help/getting-started.html">Getting Started</a></li>
+          <li><a href="/help/downloads.html">Managing Downloads</a></li>
+          <li><a href="/help/browser-integration.html">Browser Setup</a></li>
+          <li><a href="/help/troubleshooting.html">Troubleshooting</a></li>
+          <li><a href="/blog/download-speed-guide.html">Speed Guide</a></li>
+          <li><a href="/blog/download-manager-guide.html">Downloader Guide</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Company &amp; Legal</h3>
+        <ul class="footer-links">
+          <li><a href="/about.html">About DownGo</a></li>
+          <li><a href="/about-the-developer.html">About Developer</a></li>
+          <li><a href="/how-downgo-was-built.html">How It Was Built</a></li>
+          <li><a href="/faq.html">FAQ</a></li>
+          <li><a href="/contact.html">Contact Us</a></li>
+          <li><a href="/support.html">Support Desk</a></li>
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom-bar">
+      <span>Official website: <a href="https://downgo.online/">downgo.online</a> · Support: <a href="mailto:contact@downgo.online">contact@downgo.online</a></span>
+      <div class="footer-bottom-links">
+        <a href="https://www.facebook.com/profile.php?id=61595536228244" target="_blank" rel="noopener noreferrer">Official Facebook</a>
+        <a href="/sitemap.xml">XML Sitemap</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/assets/js/announcements.js" defer></script>
+  <script src="../assets/js/theme-toggle.js" defer></script>
+</body>
+</html>
