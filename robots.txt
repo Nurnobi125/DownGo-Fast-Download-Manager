@@ -1,8 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /admin.html
-Disallow: /google4821738033398078.html
-Disallow: /supabase-support-setup.sql
 Disallow: /SUPABASE_SUPPORT_SETUP.md
+Disallow: /supabase-support-setup.sql
 
 Sitemap: https://downgo.online/sitemap.xml
