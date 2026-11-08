@@ -1,0 +1,51 @@
+# DownGo
+
+> DownGo is a download manager for Windows and Linux, developed by Rafix Technologies. This file summarizes the official website and links to its main product, help, and policy pages.
+
+## About DownGo
+
+The Windows edition is available through the Microsoft Store. The Linux page provides a Debian package for compatible 64-bit Debian-based systems. Features and availability depend on the product edition and version. Download speed, resume support, and available media streams depend on the source, host, device, and network.
+
+## Main pages
+
+- [Home](https://downgo.online/): Product overview and current announcements.
+- [Features and screenshots](https://downgo.online/features.html): Windows edition features and app screenshots.
+- [Windows download](https://downgo.online/download.html): Information about getting DownGo through the Microsoft Store.
+- [Linux download](https://downgo.online/linux-download-manager.html): Linux package and installation steps for compatible 64-bit Debian-based systems.
+- [Browser integration](https://downgo.online/browser-extension.html): Supported browser integration information.
+- [Free vs Pro](https://downgo.online/free-vs-pro.html): Plan and feature comparison.
+- [Changelog](https://downgo.online/changelog.html): Product release notes.
+- [Roadmap](https://downgo.online/coming-soon.html): Planned and upcoming work.
+
+## Help and support
+
+- [Help center](https://downgo.online/help/)
+- [Getting started](https://downgo.online/help/getting-started.html)
+- [Managing downloads](https://downgo.online/help/downloads.html)
+- [Browser setup](https://downgo.online/help/browser-integration.html)
+- [Troubleshooting](https://downgo.online/help/troubleshooting.html)
+- [Frequently asked questions](https://downgo.online/faq.html)
+- [Contact](https://downgo.online/contact.html)
+- [Support tickets](https://downgo.online/support.html)
+
+## Guides and product information
+
+- [Blog](https://downgo.online/blog/)
+- [Download manager guide](https://downgo.online/blog/download-manager-guide.html)
+- [Download speed guide](https://downgo.online/blog/download-speed-guide.html)
+- [Media stream tool](https://downgo.online/video-downloader.html)
+- [Link grabber](https://downgo.online/link-grabber.html)
+- [Video converter](https://downgo.online/converter.html)
+- [About DownGo](https://downgo.online/about.html)
+- [About the developer](https://downgo.online/about-the-developer.html)
+- [How DownGo was built](https://downgo.online/how-downgo-was-built.html)
+
+## Policies and sitemap
+
+- [Privacy policy](https://downgo.online/privacy.html)
+- [Terms of service](https://downgo.online/terms.html)
+- [XML sitemap](https://downgo.online/sitemap.xml): Indexable website pages. The site currently publishes its content in English; translated page URLs are not available.
+
+## Contact
+
+For general inquiries and support, email contact@downgo.online.
